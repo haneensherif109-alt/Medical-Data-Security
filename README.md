@@ -23,16 +23,23 @@ The project includes a Python simulation that mimics the data flow from a patien
 3. **Decryption:** The hospital server receives the ciphered text and decrypts it back to readable medical data.
 
 ---
-
 ## 🚀 How to Run the Project
 
-1. Clone this repository:
+This repository demonstrates the evolution of the project from a basic implementation to an advanced, network-simulated system.
+
+### Option 1: Basic Offline Simulation (Legacy Version)
+This was the initial version of the project, where encryption and decryption happen sequentially within a single script.
+* Run the basic single file:
 ```bash
-   git clone [https://github.com/haneensherif109-alt/Medical-Data-Security.git](https://github.com/haneensherif109-alt/Medical-Data-Security.git)
-   python main.py
-1. البيانات الأصلية من جهاز المريض: 85 BPM
-2. البيانات مشفرة (لو اخترقها هكر هيشوفها كده): [Ciphertext Output]
-3. البيانات بعد وصولها للمستشفى وفك التشفير: 85 BPM
-Future Improvements
-Upgrade the system to use more robust algorithms like AES-128 optimized for IoT.
-Implement network socket simulations to mimic real-time data transmission.
+python main.py
+```
+###Option 2: Advanced Network Simulation (Latest Upgraded Version)
+To make the project realistic and closer to production, it has been upgraded to a Client-Server Architecture using Python's socket library. This simulates actual Internet of Medical Things (IoMT) data flow, where data is encrypted on the patient's device (client.py), transmitted over the network, and safely decrypted at the hospital server (server.py)
+```bash
+python server.py
+```
+```bash
+python client.py
+```
+## Project Evolution & Cybersecurity Value
+By upgrading from a single-file script (main.py) to a networked system (client.py & server.py), the project now addresses real-world Man-in-the-Middle (MitM) attack vectors. If an attacker intercepts the data traffic between the client and the server, they will only see the obfuscated cipher text, verifying the data integrity and privacy of sensitive patient health records.
